@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kahve Dünyası</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="header">
+                <i class="fas fa-mug-hot"></i>
+                <h1>KAHVE DÜNYASI</h1>
+                <div class="menu">
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#bolum2">Galeri</a></li>
+                    <li><a href="#son">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="banner" onmouseover="dur()" onmouseout="devam()">
+                <div class="slide"><img src="images/kahvearka.jpg" alt="kahve"></div>
+                <div class="slide"><img src="images/mocca.jfif" alt="kahve"></div>
+                <div class="slide"><img src="images/turkkahvesi.jpg" alt="kahve"></div>
+                <div class="slide"><img src="images/frappe.jpg" alt="kahve"></div>
+                <div class="slide"><img src="images/latte.jpg" alt="kahve"></div>
+                
+                <div class="ileri" onclick="ileri()"> >> </div>
+                <div class="geri" onclick="geri()"> << </div>
+                
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+            <div class="bolum2" name="bolum2">
+                <a href="#" name="bolum2"></a>
+                <div class="kutu">
+                    <img src="images/turkkahvesi.jpg" alt="turkkahvesi">
+                    <h3>TÜRK KAHVESİ</h3>
+                    <p>Türk kahvesi, daha çok Türk kültüründe önemli yere sahip Osmanlı İmparatorluğu'dan günümüze kadar gelmiş en eski kahve hazırlama ve pişirme metotlarındandır. Kendine has tadı, köpüğü, kokusu, sunuluş biçimiyle özgün bir kimliği ve geleneği vardır. Telvesi ile ikram edilen tek kahve türüdür.</p>
+                    <button>İncele</button>
+                </div>
+            
+                
+                    <div class="kutu">
+                        <img src="images/latte.jpg" alt="turkkahvesi">
+                        <h3>LATTE</h3>
+                        <p>Latte, İtalyanca'da Süt anlamına gelmektedir. Asıl adı Caffe Latte Machiatodur. Espresso, buharla ısıtılmış kıvamlı süt dolu bir kupaya eklenir. Genellikle ince ve uzun bardakta servis edilir. İsteğe göre üzerine süt köpüğü ve tatlı krema eklenir. </p>
+                        <button>İncele</button>
+                    </div>
+
+                        <div class="kutu">
+                            <img src="images/frappe.jpg" alt="turkkahvesi">
+                            <h3>FRAPPE</h3>
+                            <p>Frappé; Hazır kahve'nin soğuk içilen bir çeşididir. En ideal yapım şekli; bir shakerin içine 1,5 su bardağı soğuk süt, 3-4 adet buz, 1,5 kaşık hazır kahve ve şeker damak tadiniza göre koyduktan sonra iyice çalkalanır. Ince uzun ve buzlu bir bardakta servisi uygundur.</p>
+                            <button>İncele</button>
+                        </div>
+
+                            <div class="kutu">
+                                <img src="images/mocca.jfif" alt="turkkahvesi">
+                                <h3>MOCCA</h3>
+                                <p>Caffè mocha, diğer adıyla mocaccino, caffè latte'nin çikolata aromalı çeşididir. Mocha'nın birçok çeşidi vardır. Mocha'da çikolata şurubu, tatlı kakao tozu, dövülmüş kakao kullanılabilir. Mocha koyu acı kakaolu veya sütlü çikolata içerebilir.</p>
+                                <button>İncele</button>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                       <a href="#" name="son"></a>
+                        <div class="logo">
+                            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram ins"> <br> <p>kahvedunyasi</p></i></a>
+                            
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square tw"><br> <p> kahvedunyasii</p></i></a>
+
+                            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square fab"><br> <p>KahveDünyası</p></i></a>
+                        </div>
+                    </div>
+        </div>
+
+        <script>
+            var slide = document.getElementsByClassName("slide");
+            var kutucuk = document.getElementsByTagName("li");
+            var index = 0;
+            galeri();
+
+            function galeri(){
+                if(index >= slide.length){
+                    index = 0;
+                }
+                else if(index < 0){
+                    index = slide.length -1;
+                }
+                for(i=0; i<slide.length; i++){
+                    slide[i].classList.remove("aktif");
+                    kutucuk[i].classList.remove("aktiflestir");
+                }
+                slide[index].classList.add("aktif");
+                kutucuk[i].classList.add("aktiflestir");
+            }
+            sure = setInterval("ileri()",2000);
+                function ileri(){
+                    index ++;
+                    galeri();
+                }
+                function geri(){
+                    index --;
+                    galeri();
+                }
+
+                function dur(){
+                    clearInterval(sure);
+                }
+                function devam(){
+                    sure = setInterval(ileri,2000);
+                }
+        </script>
+    </body>
+</html>
